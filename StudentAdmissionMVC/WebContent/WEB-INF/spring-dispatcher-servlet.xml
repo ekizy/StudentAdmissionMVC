@@ -1,0 +1,95 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+	<context:component-scan base-package="com.example.formcontroller" />
+	<mvc:annotation-driven />
+
+	<context:component-scan base-package="com.example.hellocontroller" />
+
+	<bean name="/first.html" class="com.example.welcome.HelloController" />
+
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!-- bütün urller için interceptor <mvc:interceptors> <bean class="com.example.formcontroller.SundayInterceptor"/>
+		</mvc:interceptors> -->
+
+	<!-- özel bir url icin interceptor tanımlandı. Sadece kayıt formu pazar
+		gunu gozukmeyecek. -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/getAdmission.html" />
+			<bean class="com.example.formcontroller.SundayInterceptor" />
+		</mvc:interceptor>
+
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="siteLanguage" />
+		</bean>
+
+		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="siteTheme" />
+		</bean>
+	</mvc:interceptors>
+
+<!-- theme properties dosyaları için web-inf klasörüne mapping yapıldı -->
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/" />
+
+	<!-- Sayfada çıkan mesajlar bu bean ile yönlendirilir. -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages" />
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
+
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="theme-" />
+	</bean>
+
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<!-- Varsayılan tema yeşil seçildi -->
+		<property name="defaultThemeName" value="green" />
+	</bean>
+
+<!-- Bean yoluyla da exception handle edilebilir. -->
+
+<!-- 	<bean id="simpleMappingExceptionResolver" -->
+<!--		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--		<property name="exceptionMappings">-->
+<!--			<map>-->
+			<!-- Spesifik exceptionlar buradan handle edililir. -->
+<!--				<entry key="NullPointerException" value="NullPointerException" />-->
+<!--				<entry key="IOException" value="IOException" />-->
+<!--			</map>-->
+<!--		</property>-->
+	<!-- Genel bir hata ise düz exception olarak handle edilir. -->
+<!--		<property name="defaultErrorView" value="Exception" />-->
+<!--		<property name="warnLogCategory" value="MVCLogger" />-->
+<!--	</bean>-->
+
+
+
+</beans>
