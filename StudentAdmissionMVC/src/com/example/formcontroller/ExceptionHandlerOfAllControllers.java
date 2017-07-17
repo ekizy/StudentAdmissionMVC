@@ -12,7 +12,7 @@ public class ExceptionHandlerOfAllControllers {
 	@ExceptionHandler(value=Exception.class)
 	public String handleException(Exception e)
 	{
-		System.out.println("Exception occured");
+		System.out.println("An Exception occured");
 		System.out.println(e.getStackTrace().toString());
 
 		return "Exception";
