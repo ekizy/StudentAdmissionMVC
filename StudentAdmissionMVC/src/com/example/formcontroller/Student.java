@@ -41,6 +41,8 @@ public class Student {
 
 	private Address studentAddress; //adres sinifi student sinifinda kullanildi.
 
+	private int studentNumber;
+
 	public Student(String name,String hobby)
 	{
 		this.studentName=name;
@@ -94,6 +96,14 @@ public class Student {
 
 	public void setStudentAddress(Address studentAddress) {
 		this.studentAddress = studentAddress;
+	}
+
+	public int getStudentNumber() {
+		return studentNumber;
+	}
+
+	public void setStudentNumber(int studentNumber) {
+		this.studentNumber = studentNumber;
 	}
 
 

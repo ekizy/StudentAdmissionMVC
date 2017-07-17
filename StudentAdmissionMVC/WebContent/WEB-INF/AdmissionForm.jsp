@@ -41,13 +41,17 @@
 	<form:errors path="student1.*" />
 	<!-- Student inputlarında hata varsa göstermek icin -->
 
-	<form action="/StudentAdmissionMVC/submitAdmission.html"
-		method="post">
+	<form action="/StudentAdmissionMVC/submitAdmission.html" method="post">
 		<!-- These name tags have to be consistent with java class variables. -->
 		<table>
 			<tr>
 				<td><spring:message code="label.studentName" /></td>
 				<td><input type="text" name="studentName" /></td>
+			</tr>
+
+			<tr>
+				<td><spring:message code="label.studentNumber" /></td>
+				<td><input type="text" name="studentNumber" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentHobby" /></td>
@@ -72,18 +76,19 @@
 			</tr>
 		</table>
 
-<p> <spring:message code="label.address" /></p>
+<p> <spring:message code="label.address" />
+			</p>
 		<table>
 
 			<tr>
 				<td><spring:message code="label.studentAddress.country" /> <input
-					type="text" name="studentAddress.country"></td>
+						type="text" name="studentAddress.country"></td>
 				<td><spring:message code="label.studentAddress.city" /> <input
-					type="text" name="studentAddress.city"></td>
+						type="text" name="studentAddress.city"></td>
 				<td><spring:message code="label.studentAddress.street" /> <input
-					type="text" name="studentAddress.street"></td>
+						type="text" name="studentAddress.street"></td>
 				<td><spring:message code="label.studentAddress.pincode" /> <input
-					type="text" name="studentAddress.pincode"></td>
+						type="text" name="studentAddress.pincode"></td>
 			</tr>
 		</table>
 
