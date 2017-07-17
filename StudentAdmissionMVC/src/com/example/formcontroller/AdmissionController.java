@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.db.DBConnector;
+
 @Controller
 public class AdmissionController {
 
@@ -40,9 +42,23 @@ public class AdmissionController {
 	}
 
 	@RequestMapping(value="/getAdmission.html",method=RequestMethod.GET)
-	public ModelAndView getAdmissionForm()
+	public ModelAndView getAdmissionForm() throws Exception
 	{
 		ModelAndView model = new ModelAndView("AdmissionForm"); //javascript dosyasına mapping yapıldı.
+
+		return model;
+	}
+
+	@RequestMapping(value="/",method=RequestMethod.GET)
+	public ModelAndView sayHi()
+	{
+		ModelAndView model = new ModelAndView("ExamplePage");//javascript dosyasına mapping yapıldı.
+
+		DBConnector db= new DBConnector();
+
+		ArrayList<String> list =db.getArray();
+
+		model.addObject("as",list.get(1));
 
 		return model;
 	}
