@@ -47,6 +47,8 @@
 	<div id="pageheader">
 		<link href="./resources/bootstrap.css" rel="stylesheet"
 			type="text/css">
+		<link href="./resources/style.css" rel="stylesheet"
+			type="text/css">
 		<jsp:invoke fragment="header" />
 	</div>
 

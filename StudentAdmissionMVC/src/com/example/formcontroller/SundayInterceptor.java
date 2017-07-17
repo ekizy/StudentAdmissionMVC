@@ -18,7 +18,7 @@ public class SundayInterceptor extends HandlerInterceptorAdapter{
 	{
 		Calendar cal =Calendar.getInstance();
 
-		int dayOfWeek =cal.get(cal.DAY_OF_WEEK);
+		int dayOfWeek =cal.get(Calendar.DAY_OF_WEEK);
 
 		//Gunler Pazardan Pazartesiye kadar 1-7 şeklinde gider.
 

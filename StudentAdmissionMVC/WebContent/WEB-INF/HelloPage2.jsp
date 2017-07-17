@@ -4,6 +4,8 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
+      	 <div style="height:52px;">
+  	 </div>
       <h1>Welcome</h1>
       <title>Welcome</title>
     </jsp:attribute>
