@@ -42,7 +42,7 @@ public class AdmissionController {
 	}
 
 	@RequestMapping(value="/getAdmission.html",method=RequestMethod.GET)
-	public ModelAndView getAdmissionForm() throws Exception
+	public ModelAndView getAdmissionForm()
 	{
 		ModelAndView model = new ModelAndView("AdmissionForm"); //javascript dosyasına mapping yapıldı.
 
