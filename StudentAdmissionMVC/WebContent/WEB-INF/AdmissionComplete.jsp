@@ -6,11 +6,15 @@
 <t:genericpage>
 
 <jsp:attribute name="header">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><spring:message code="label.successfulAdmission"/></title>
 </jsp:attribute>
 
 <jsp:body>
+
+  	 <div style="height: 52px;">
+  	 </div>
+
 
 	<h1>${headerMessage}</h1>
 

@@ -1,5 +1,6 @@
 package com.example.formcontroller;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,28 +37,6 @@ public class AdmissionController {
 
 	}
 
-	@RequestMapping(value="/getAdmission.html",method=RequestMethod.GET)
-	public ModelAndView getAdmissionForm()
-	{
-		ModelAndView model = new ModelAndView("AdmissionForm"); //javascript dosyasına mapping yapıldı.
-
-		return model;
-	}
-
-	@RequestMapping(value="/",method=RequestMethod.GET)
-	public ModelAndView sayHi()
-	{
-		ModelAndView model = new ModelAndView("ExamplePage");//javascript dosyasına mapping yapıldı.
-
-		DBConnector db= new DBConnector();
-
-		ArrayList<String> list =db.getArray();
-
-		model.addObject("as",list.get(1));
-
-		return model;
-	}
-
 	@ModelAttribute
 	public void addingCommonObjects(Model model1)
 	{
@@ -76,6 +55,53 @@ public class AdmissionController {
 		{
 			ModelAndView model = new ModelAndView("AdmissionForm"); //mapping to the javascript file
             return model;
+		}
+
+		//student tablosuna,skills tablosuna ve adres tablosuna veriler eklendi.
+
+		DBConnector dbConnector = new DBConnector();
+
+		try {
+			String studentInsert ="INSERT INTO STUDENTS (name,hobby,mobile,birthday,studentnumber) VALUES ('"+
+					student1.getStudentName().toString()+"','"+student1.getStudentHobby().toString()+"',"+student1.getStudentMobile()
+					+",'"+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+");";
+			dbConnector.stmt.executeUpdate(studentInsert);
+
+
+			dbConnector.rs=dbConnector.stmt.executeQuery("SELECT id from STUDENTS WHERE studentnumber="
+			+Integer.toString(student1.getStudentNumber())+";");
+
+			dbConnector.rs.next();
+
+			int studentID=dbConnector.rs.getInt(1);
+
+			System.out.println(studentID);
+
+
+
+			ArrayList <String> skillList = student1.getStudentSkills();
+
+			System.out.println(skillList.toString());
+
+			for(int i=0;i<skillList.size();i++)
+			{
+				String skillInsert = "INSERT INTO STUDENTSKILLS (studentid,skillname) VALUES("
+			+studentID+",'"+skillList.get(i)+"');";
+				dbConnector.stmt.executeUpdate(skillInsert);
+			}
+
+			String addressInsert="INSERT INTO ADDRESSES (country,city,street,pincode,studentid) VALUES('"+
+			   student1.getStudentAddress().getCountry()+"','"+student1.getStudentAddress().getCity()+"','"+
+			   student1.getStudentAddress().getStreet()+"',"+student1.getStudentAddress().getPincode()+","+
+			   studentID+");";
+
+			dbConnector.stmt.executeUpdate(addressInsert);
+
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		ModelAndView model = new ModelAndView("AdmissionComplete"); // mapping to the javascript file.

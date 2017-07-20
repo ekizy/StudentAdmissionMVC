@@ -84,8 +84,8 @@
 		</table>
 
 
-<p> <spring:message code="label.submitMessage" /> </p>
-		<button class="btn btn-success">
+<p style="text-align:center;"> <spring:message code="label.submitMessage" /> </p>
+		<button class="btn btn-success" style="margin-left:110px;">
 					<spring:message code="label.submit" />  </button>
 
 

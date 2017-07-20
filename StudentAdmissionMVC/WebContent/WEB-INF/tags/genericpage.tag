@@ -19,23 +19,24 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a><spring:message code="label.lecturePlan" /></a></li>
-					<li><a><spring:message code="label.students" /></a></li>
-					<li><a><spring:message code="label.teachers" /></a></li>
-					<li><a><spring:message code="label.about" /></a></li>
-					<li><a><spring:message code="label.contact" /></a></li>
+					<li><a  href="/StudentAdmissionMVC"><spring:message code="label.home" /></a></li>
+					<li><a href="/StudentAdmissionMVC/students"><spring:message code="label.students" /></a></li>
+					<li><a href="/StudentAdmissionMVC/teachers"><spring:message code="label.teachers" /></a></li>
+					<li><a  href="/StudentAdmissionMVC/getAdmission.html">
+					<spring:message code="label.studentAdmission" /></a></li>
+					<li><a href="/StudentAdmissionMVC/contact"><spring:message code="label.contact" /></a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 
 					<li><a
-						href="/StudentAdmissionMVC/getAdmission.html?siteLanguage=en"
+						href="?siteLanguage=en"
 						style="text-decoration: none;"> English</a></li>
 					<li><a
-						href="/StudentAdmissionMVC/getAdmission.html?siteLanguage=de"
+						href="?siteLanguage=de"
 						style="text-decoration: none;">Deutsch</a></li>
 					<li><a
-						href="/StudentAdmissionMVC/getAdmission.html?siteLanguage=tr"
+						href="?siteLanguage=tr"
 						style="text-decoration: none;">Türkçe</a></li>
 				</ul>
 
