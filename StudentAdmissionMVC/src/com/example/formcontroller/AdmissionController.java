@@ -62,9 +62,11 @@ public class AdmissionController {
 		DBConnector dbConnector = new DBConnector();
 
 		try {
-			String studentInsert ="INSERT INTO STUDENTS (name,hobby,birthday,studentnumber) VALUES ('"+
-					student1.getStudentName().toString()+"','"+student1.getStudentHobby().toString()+"','"
-					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+");";
+			String studentInsert ="INSERT INTO STUDENTS (name,surname,hobby,birthday,studentnumber,faculty) VALUES ('"+
+					student1.getStudentName().toString()+"','"+student1.getStudentSurname()
+					+"','"+student1.getStudentHobby().toString()+"','"
+					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+",'"
+					+student1.getStudentFaculty()+"');";
 
 			dbConnector.stmt.executeUpdate(studentInsert);
 

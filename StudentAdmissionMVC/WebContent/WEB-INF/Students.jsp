@@ -26,14 +26,42 @@
 </div>
 
 
-<div class="main">
 
-	<table>
-	  	 <c:forEach items="${students}" var="student">
-<p align="center">  ${student.studentName }   ${student.studentNumber } </p>
+
+<div class="container">
+  <h2 class="studentHeader">All Students </h2>
+
+  <div class="main">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th><spring:message code="label.studentName" /></th>
+        <th><spring:message code="label.studentSurname" /></th>
+        <th><spring:message code="label.studentNumber" /></th>
+        <th><spring:message code="label.studentFaculty" /></th>
+      </tr>
+    </thead>
+    <tbody>
+		  	 <c:forEach items="${students}" var="student">
+		  	 <tr>
+		  	 <td>${student.studentName } </td>
+		  	 <td> ${student.studentSurname }</td>
+		  	 <td> ${student.studentNumber }</td>
+		  	 <td> ${student.studentFaculty }</td>
+
+		  	 </tr>
 </c:forEach>
-	</table>
+    </tbody>
+  </table>
+
+  </div>
 </div>
+
+
+
+
 
 
 

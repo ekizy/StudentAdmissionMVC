@@ -18,6 +18,9 @@ public class Student {
 	@Pattern(regexp="[^0-9]*") //isimde rakam bulunmamasi için bir pattern tanimlandi.
 	private String studentName;
 
+	@Pattern(regexp="[^0-9]*") //isimde rakam bulunmamasi için bir pattern tanimlandi.
+	private String studentSurname;
+
 
 	//@Size(min=2,max=20,message="Please give a value for hobby which has a length between {min} and {max}")
 	//Hataya ozel mesaj da verilebilir.
@@ -36,6 +39,8 @@ public class Student {
 	private Address studentAddress; //adres sinifi student sinifinda kullanildi.
 
 	private int studentNumber;
+
+	private String studentFaculty;
 
 	public Student(String name,String hobby)
 	{
@@ -91,6 +96,22 @@ public class Student {
 
 	public void setStudentNumber(int studentNumber) {
 		this.studentNumber = studentNumber;
+	}
+
+	public String getStudentSurname() {
+		return studentSurname;
+	}
+
+	public void setStudentSurname(String studentSurname) {
+		this.studentSurname = studentSurname;
+	}
+
+	public String getStudentFaculty() {
+		return studentFaculty;
+	}
+
+	public void setStudentFaculty(String studentFaculty) {
+		this.studentFaculty = studentFaculty;
 	}
 
 

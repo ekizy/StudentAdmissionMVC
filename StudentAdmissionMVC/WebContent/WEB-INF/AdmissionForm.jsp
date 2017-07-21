@@ -36,8 +36,18 @@
 			</tr>
 
 			<tr>
+				<td><spring:message code="label.studentSurname" /></td>
+				<td><input class="form-control" type="text" name="studentSurname" /></td>
+			</tr>
+
+			<tr>
 				<td><spring:message code="label.studentNumber" /></td>
 				<td><input class="form-control" type="text" name="studentNumber" /></td>
+			</tr>
+
+			<tr>
+				<td><spring:message code="label.studentFaculty" /></td>
+				<td><input class="form-control" type="text" name="studentFaculty" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentHobby" /></td>
@@ -81,7 +91,7 @@
 
 
 <p style="text-align:center;"> <spring:message code="label.submitMessage" /> </p>
-		<button class="btn btn-success" style="margin-left:110px;">
+		<button class="btn btn-success" style="margin:0 auto; display:block;">
 					<spring:message code="label.submit" />  </button>
 
 

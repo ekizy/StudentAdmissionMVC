@@ -47,13 +47,15 @@ public class NavigatorController {
 				Student student = new Student();
 				int studentID = dbConnector.rs.getInt(1);
 				student.setStudentName(dbConnector.rs.getString(2));
-				student.setStudentHobby(dbConnector.rs.getString(3));
+				student.setStudentSurname(dbConnector.rs.getString(3));
+				student.setStudentHobby(dbConnector.rs.getString(4));
 
-				String dateStr = dbConnector.rs.getString(4);
+				String dateStr = dbConnector.rs.getString(5);
 				SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
 				Date date = format.parse(dateStr);
 				student.setStudentBirthday(date);
-				student.setStudentNumber(dbConnector.rs.getInt(5));
+				student.setStudentNumber(dbConnector.rs.getInt(6));
+				student.setStudentFaculty(dbConnector.rs.getString(7));
 
 				String skillQuery="SELECT skillname from STUDENTSKILLS where studentid="+studentID+";";
 
