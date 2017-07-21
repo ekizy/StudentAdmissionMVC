@@ -25,35 +25,31 @@
 	<!-- Student inputlarında hata varsa göstermek icin -->
 
 <div class="main">
-	<form action="/StudentAdmissionMVC/submitAdmission.html" method="post">
+	<form action="/StudentAdmissionMVC/submitAdmission" method="post">
 
 		<!-- These name tags have to be consistent with java class variables. -->
 
 		<table>
 			<tr>
 				<td><spring:message code="label.studentName" /></td>
-				<td><input type="text" name="studentName" /></td>
+				<td><input class="form-control" type="text" name="studentName" /></td>
 			</tr>
 
 			<tr>
 				<td><spring:message code="label.studentNumber" /></td>
-				<td><input type="text" name="studentNumber" /></td>
+				<td><input class="form-control" type="text" name="studentNumber" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentHobby" /></td>
-				<td><input type="text" name="studentHobby" /></td>
-			</tr>
-			<tr>
-			<!-- 	<td><spring:message code="label.studentMobile" /></td>
-				<td><input type="text" name="studentMobile" /></td>-->
+				<td><input class="form-control" type="text" name="studentHobby" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentBirthday" /></td>
-				<td><input type="text" name="studentBirthday" /></td>
+				<td><input class="form-control" type="text" name="studentBirthday" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentSkills" /></td>
-				<td><select name="studentSkills" multiple>
+				<td><select class="form-control" name="studentSkills" multiple>
 						<option value="Java">Java</option>
 						<option value="C++">C++</option>
 						<option value=".NET">.NET</option>
@@ -66,19 +62,19 @@
 			</tr>
 			<tr>
 				<td><spring:message code="label.studentAddress.country" /> </td><td><input
-								type="text" name="studentAddress.country"></td>
+				class="form-control" type="text" name="studentAddress.country"></td>
 							</tr>
 							<tr>
 				<td><spring:message code="label.studentAddress.city" /></td><td> <input
-								type="text" name="studentAddress.city"></td>
+				class="form-control" type="text" name="studentAddress.city"></td>
 							</tr>
 							<tr>
 				<td><spring:message code="label.studentAddress.street" /> </td><td><input
-								type="text" name="studentAddress.street"></td>
+				class="form-control" type="text" name="studentAddress.street"></td>
 							</tr>
 							<tr>
 				<td><spring:message code="label.studentAddress.pincode" /> </td><td><input
-								type="text" name="studentAddress.pincode"></td>
+			class="form-control"	type="text" name="studentAddress.pincode"></td>
 
 			</tr>
 		</table>

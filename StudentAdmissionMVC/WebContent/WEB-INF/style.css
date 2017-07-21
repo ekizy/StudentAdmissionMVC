@@ -1,0 +1,22 @@
+table{
+	margin-bottom:5px;
+}
+
+table,tr,td{
+    padding-top:    .5em;
+    padding-bottom: .5em;
+}
+
+.main {
+margin:10px 0px 0px 10px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.admissionHeader1
+
+{
+	text-align:center;
+}
+

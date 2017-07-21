@@ -13,7 +13,7 @@ public class ExceptionHandlerOfAllControllers {
 	public String handleException(Exception e)
 	{
 		System.out.println("An Exception occured");
-		System.out.println(e.getStackTrace().toString());
+		e.printStackTrace();
 
 		return "Exception";
 	}

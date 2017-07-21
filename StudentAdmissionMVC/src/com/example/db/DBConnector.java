@@ -3,9 +3,7 @@ package com.example.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class DBConnector {
 
@@ -17,7 +15,7 @@ public class DBConnector {
 	{
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con= DriverManager.getConnection("jdbc:mysql://localhost/admissiondb","root","");
+			con= DriverManager.getConnection("jdbc:mysql://localhost/admissiondb?autoReconnect=true&useSSL=false","root","");
 			stmt =con.createStatement();
 		}
 

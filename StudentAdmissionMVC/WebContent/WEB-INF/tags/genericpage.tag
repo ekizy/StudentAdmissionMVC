@@ -4,8 +4,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+		<link href="./resources/bootstrap.css" rel="stylesheet"
+			type="text/css">
+		<link href="./resources/style.css" rel="stylesheet"
+			type="text/css">
 
 <html>
+
 <body style="background-color: #DDDDDD">
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -46,10 +51,7 @@
 		</div>
 	</div>
 	<div id="pageheader">
-		<link href="./resources/bootstrap.css" rel="stylesheet"
-			type="text/css">
-		<link href="./resources/style.css" rel="stylesheet"
-			type="text/css">
+
 		<jsp:invoke fragment="header" />
 	</div>
 

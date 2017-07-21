@@ -26,9 +26,6 @@ public class Student {
 	//isValidHobby yapay annotation. Ici bos da kalabilir. listenin default valuesu var isValid class'ında
 	private String studentHobby;
 
-	//@Max(2222)
-	private Long studentMobile;
-
 	@Past
 	private Date studentBirthday; //tarih formati. DD/MM/YYYY seklinde olmali.
 
@@ -63,13 +60,6 @@ public class Student {
 		this.studentName = studentName;
 	}
 
-	public Long getStudentMobile() {
-		return studentMobile;
-	}
-
-	public void setStudentMobile(Long studentMobile) {
-		this.studentMobile = studentMobile;
-	}
 
 	public Date getStudentBirthday() {
 		return studentBirthday;

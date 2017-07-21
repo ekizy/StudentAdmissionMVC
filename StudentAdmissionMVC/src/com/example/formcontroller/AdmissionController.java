@@ -45,7 +45,7 @@ public class AdmissionController {
 
 
 	//Direk objeden page request.
-	@RequestMapping(value="/submitAdmission.html",method=RequestMethod.POST)
+	@RequestMapping(value="/submitAdmission",method=RequestMethod.POST)
 	public ModelAndView submitAdmissionForm(@Valid @ModelAttribute("student1") Student student1
 			,BindingResult result)
 	{
@@ -62,9 +62,10 @@ public class AdmissionController {
 		DBConnector dbConnector = new DBConnector();
 
 		try {
-			String studentInsert ="INSERT INTO STUDENTS (name,hobby,mobile,birthday,studentnumber) VALUES ('"+
-					student1.getStudentName().toString()+"','"+student1.getStudentHobby().toString()+"',"+student1.getStudentMobile()
-					+",'"+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+");";
+			String studentInsert ="INSERT INTO STUDENTS (name,hobby,birthday,studentnumber) VALUES ('"+
+					student1.getStudentName().toString()+"','"+student1.getStudentHobby().toString()+"','"
+					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+");";
+
 			dbConnector.stmt.executeUpdate(studentInsert);
 
 
@@ -96,6 +97,8 @@ public class AdmissionController {
 			   studentID+");";
 
 			dbConnector.stmt.executeUpdate(addressInsert);
+
+			dbConnector.con.close();
 
 
 

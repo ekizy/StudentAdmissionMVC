@@ -36,10 +36,6 @@
 		</tr>
 
 		<tr>
-			<td><spring:message code="label.studentMobile" /></td>
-			<td>${student1.studentMobile}</td>
-		</tr>
-		<tr>
 			<td><spring:message code="label.studentBirthday" /></td>
 			<td>${student1.studentBirthday}</td>
 		</tr>
