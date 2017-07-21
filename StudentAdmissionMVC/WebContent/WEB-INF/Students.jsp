@@ -19,8 +19,6 @@
   	 <div style="height:80px;">
   	 </div>
 
-  	 <p align="center"> This page shows all of the students in the university. </p>
-
 <div class="main">
 <a  href="/StudentAdmissionMVC/getAdmission" class="btn btn-success" role="button">Add a Student</a>
 </div>
@@ -29,7 +27,9 @@
 
 
 <div class="container">
-  <h2 class="studentHeader">All Students </h2>
+  <h1 class="studentHeader">All of the students can be seen below</h1>
+
+  <h3 class="studentHeader"> You can click the student name for more details</h3>
 
   <div class="main">
 
@@ -46,7 +46,7 @@
     <tbody>
 		  	 <c:forEach items="${students}" var="student">
 		  	 <tr>
-		  	 <td>${student.studentName } </td>
+		  	 <td><a href="/StudentAdmissionMVC/${student.studentNumber }" style="color:black;">${student.studentName }</a> </td>
 		  	 <td> ${student.studentSurname }</td>
 		  	 <td> ${student.studentNumber }</td>
 		  	 <td> ${student.studentFaculty }</td>
