@@ -24,10 +24,10 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a  href="/EnrollmentSystem"><spring:message code="label.home" /></a></li>
-					<li><a href="/EnrollmentSystem/students"><spring:message code="label.students" /></a></li>
-					<li><a href="/EnrollmentSystem/instructors"><spring:message code="label.teachers" /></a></li>
-					<li><a href="/EnrollmentSystem/contact"><spring:message code="label.contact" /></a></li>
+					<li><a  href="/StudentAdmissionMVC"><spring:message code="label.home" /></a></li>
+					<li><a href="/StudentAdmissionMVC/students"><spring:message code="label.students" /></a></li>
+					<li><a href="/StudentAdmissionMVC/instructors"><spring:message code="label.teachers" /></a></li>
+					<li><a href="/StudentAdmissionMVC/contact"><spring:message code="label.contact" /></a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
