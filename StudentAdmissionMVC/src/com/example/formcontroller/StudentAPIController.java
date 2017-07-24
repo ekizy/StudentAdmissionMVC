@@ -19,9 +19,10 @@ public class StudentAPIController {
 
      //produces değişkeni ile sayfanın destekleyeceği formatlar kısıtlanabilir. Mesela şu an sadece json.
 	//@ResponseBody
-	@RequestMapping(value="/students",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/allStudents",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ArrayList<Student> getStudentsList()
 	{
+		//Databaseden valueları çek.
 		ArrayList<Student> students =new ArrayList<Student>();
 
 		Student student1= new Student();
@@ -42,7 +43,7 @@ public class StudentAPIController {
 	}
 
 	//@ResponseBody
-	@RequestMapping(value="/students/{number}",method=RequestMethod.GET)
+	@RequestMapping(value="/allStudents/{number}",method=RequestMethod.GET)
 	public Student getStudent(@PathVariable("number") int studentNumber)
 	{
 		//db'den student bilgileri alınır. Projeye db bağlamak lazım.
@@ -52,7 +53,7 @@ public class StudentAPIController {
 		return student;
 	}
 	// consume ile body'e sadece json şeklinde input girilmesi sağlanır.
-	@RequestMapping(value="/students/{name}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/allStudents/{name}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean updateStudentInfo(@PathVariable("name") String studentName,@RequestBody Student student)
 	{
 		// db'e git.Student'ı bul. sonra update et.
@@ -62,7 +63,7 @@ public class StudentAPIController {
 	}
 
 
-	@RequestMapping(value="/students/update/{name}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/allStudents/update/{name}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> updateStudentInformation(@PathVariable("name") String studentName,@RequestBody Student student)
 	{
 		// db'e git.Student'ı bul. sonra update et.
@@ -80,7 +81,7 @@ public class StudentAPIController {
     // üç arguman alırsa response body,httpHeaders ve response status alır.
 	}
 
-	@RequestMapping(value="/students",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/allStudents",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> getNewStudent(@RequestBody Student student)
 	{
 		// db'e kaydet.
@@ -95,7 +96,7 @@ public class StudentAPIController {
 		//yeni birşey yollandı mı genellikle created sinyali yollanır. (201)
 	}
 
-	@RequestMapping(value="/students/update/{name}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/allStudents/update/{name}",method=RequestMethod.DELETE)
 	public ResponseEntity<Boolean> deleteStudentInformation(@PathVariable("name") String studentName)
 	{
 		// db'e git.Student'ı bul. sonra sil

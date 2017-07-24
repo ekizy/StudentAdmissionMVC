@@ -13,10 +13,6 @@
 	<context:component-scan base-package="com.example.formcontroller" />
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.example.hellocontroller" />
-
-	<bean name="/first.html" class="com.example.welcome.HelloController" />
-
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

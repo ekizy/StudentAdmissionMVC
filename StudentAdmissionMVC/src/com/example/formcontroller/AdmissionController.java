@@ -119,8 +119,8 @@ public class AdmissionController {
 
 
 	//Direk objeden page request.
-	@RequestMapping(value="/submitTeacher",method=RequestMethod.POST)
-	public ModelAndView submitTeacher(@Valid @ModelAttribute("teacher") Instructor instructor
+	@RequestMapping(value="/submitInstructor",method=RequestMethod.POST)
+	public ModelAndView submitInstructor(@Valid @ModelAttribute("instructor") Instructor instructor
 			,BindingResult result)
 	{
 		//Request parametreleri javascript dosyalarıyla tutarlı olmak zorunda.
@@ -135,44 +135,23 @@ public class AdmissionController {
 
 		DBConnector dbConnector = new DBConnector();
 
-	/*	try {
-			String studentInsert ="INSERT INTO STUDENTS (name,surname,hobby,birthday,studentnumber,faculty) VALUES ('"+
-					student1.getStudentName().toString()+"','"+student1.getStudentSurname()
-					+"','"+student1.getStudentHobby().toString()+"','"
-					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+",'"
-					+student1.getStudentFaculty()+"');";
+		try {
+			String instructorInsert ="INSERT INTO INSTRUCTORS (name,surname,mobile,title,email) VALUES ('"+
+					instructor.getInstructorName()+"','"+instructor.getInstructorSurname()
+					+"',"+instructor.getInstructorMobile()+",'"
+					+instructor.getInstructorTitle()+"','"+instructor.getInstructorEmail()+"');";
 
-			dbConnector.stmt.executeUpdate(studentInsert);
+			dbConnector.stmt.executeUpdate(instructorInsert);
 
 
-			dbConnector.rs=dbConnector.stmt.executeQuery("SELECT id from STUDENTS WHERE studentnumber="
-			+Integer.toString(student1.getStudentNumber())+";");
+			dbConnector.rs=dbConnector.stmt.executeQuery("SELECT id from INSTRUCTORS WHERE name='"+instructor.getInstructorName()
+			+"' AND surname='"+instructor.getInstructorSurname()+"';");
 
 			dbConnector.rs.next();
 
-			int studentID=dbConnector.rs.getInt(1);
+			int instructorID=dbConnector.rs.getInt(1);
 
-			System.out.println(studentID);
-
-
-
-			ArrayList <String> skillList = student1.getStudentSkills();
-
-			System.out.println(skillList.toString());
-
-			for(int i=0;i<skillList.size();i++)
-			{
-				String skillInsert = "INSERT INTO STUDENTSKILLS (studentid,skillname) VALUES("
-			+studentID+",'"+skillList.get(i)+"');";
-				dbConnector.stmt.executeUpdate(skillInsert);
-			}
-
-			String addressInsert="INSERT INTO ADDRESSES (country,city,street,pincode,studentid) VALUES('"+
-			   student1.getStudentAddress().getCountry()+"','"+student1.getStudentAddress().getCity()+"','"+
-			   student1.getStudentAddress().getStreet()+"',"+student1.getStudentAddress().getPincode()+","+
-			   studentID+");";
-
-			dbConnector.stmt.executeUpdate(addressInsert);
+			System.out.println(instructorID);
 
 			dbConnector.con.close();
 
@@ -181,7 +160,7 @@ public class AdmissionController {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 
 		ModelAndView model = new ModelAndView("instructorAddSuccess"); // javascript dosyasına yönlendirildi.
 

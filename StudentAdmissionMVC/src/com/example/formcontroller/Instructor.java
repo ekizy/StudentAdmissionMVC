@@ -1,11 +1,24 @@
 package com.example.formcontroller;
 
+import javax.validation.constraints.Pattern;
+
 public class Instructor {
+
+	@Pattern(regexp="[^0-9]*")
 	private String instructorName;
+
+	@Pattern(regexp="[^0-9]*")
 	private String instructorSurname;
+
+	@Pattern(regexp="[0-9]{10}")
 	private Long instructorMobile;
+
 	private String instructorTitle;
+
 	private int instructorOffice;
+
+	@Pattern(regexp="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+   + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 	private String instructorEmail;
 
 	public Instructor()

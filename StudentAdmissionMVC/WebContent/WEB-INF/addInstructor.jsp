@@ -25,7 +25,7 @@
 	<!-- Student inputlarında hata varsa göstermek icin -->
 
 <div class="main">
-	<form action="/StudentAdmissionMVC/submitTeacher" method="post">
+	<form action="/StudentAdmissionMVC/submitInstructor" method="post">
 
 		<!-- Inputlarla classların eşleşebilmesi için name taglerine classlardaki değişkenlerin adı verilmiştir. -->
 

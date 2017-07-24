@@ -3,6 +3,8 @@ package com.example.formcontroller;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -18,14 +20,15 @@ public class Student {
 	@Pattern(regexp="[^0-9]*") //isimde rakam bulunmamasi için bir pattern tanimlandi.
 	private String studentName;
 
-	@Pattern(regexp="[^0-9]*") //isimde rakam bulunmamasi için bir pattern tanimlandi.
+	@Pattern(regexp="[^0-9]*") //soyisimde rakam bulunmamasi için bir pattern tanimlandi.
 	private String studentSurname;
 
 
 	//@Size(min=2,max=20,message="Please give a value for hobby which has a length between {min} and {max}")
 	//Hataya ozel mesaj da verilebilir.
 
-	@Size(min=2,max=20) @IsValidHobby(listOfValidValues="Music|Football|Basketball|Hockey")
+	@Size(min=2,max=20) @IsValidHobby(listOfValidValues="Music|Football|Basketball|Hockey|Books",
+			message="Please write a valid hobby")
 	//isValidHobby yapay annotation. Ici bos da kalabilir. listenin default valuesu var isValid class'ında
 	private String studentHobby;
 
@@ -38,6 +41,7 @@ public class Student {
 
 	private Address studentAddress; //adres sinifi student sinifinda kullanildi.
 
+	@Min(1) @Max(999999999)   //studentNumber'ın (1,999999999) aralığında olması sağlandı.
 	private int studentNumber;
 
 	private String studentFaculty;

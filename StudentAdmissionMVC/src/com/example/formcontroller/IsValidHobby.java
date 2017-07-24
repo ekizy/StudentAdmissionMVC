@@ -17,10 +17,9 @@ import javax.validation.Payload;
 //HobbyValidator'ın interface'i. Annotation class'ı da denebilir. Bu adla annotation acilir.
 
 public @interface IsValidHobby {
-	 String message() default "Please provide a valid Hobby; " +
-               "accepted hobies are Music,Football,Basketball and Hockey";
+	 String message();
 
-	 String listOfValidValues() default "Football|Basketball";
+	 String listOfValidValues();
 
 	 Class <?>[] groups() default {};
 
