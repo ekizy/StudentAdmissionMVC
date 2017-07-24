@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class Instructor {
 	private String instructorName;
+	private String instructorSurname;
 	private Long instructorMobile;
 	private String instructorTitle;
 	private int instructorOffice;
 	private String instructorEmail;
-	private ArrayList <Lecture> lectures;
 
 	public Instructor()
 	{
-		lectures= new ArrayList <Lecture>();
 	}
 
 	public String getInstructorName() {
@@ -39,12 +38,6 @@ public class Instructor {
 	public void setInstructorEmail(String instructorEmail) {
 		this.instructorEmail = instructorEmail;
 	}
-	public ArrayList <Lecture> getLectures() {
-		return lectures;
-	}
-	public void setLectures(ArrayList <Lecture> lectures) {
-		this.lectures = lectures;
-	}
 
 	public int getInstructorOffice() {
 		return instructorOffice;
@@ -52,6 +45,14 @@ public class Instructor {
 
 	public void setInstructorOffice(int instructorOffice) {
 		this.instructorOffice = instructorOffice;
+	}
+
+	public String getInstructorSurname() {
+		return instructorSurname;
+	}
+
+	public void setInstructorSurname(String instructorSurname) {
+		this.instructorSurname = instructorSurname;
 	}
 
 }

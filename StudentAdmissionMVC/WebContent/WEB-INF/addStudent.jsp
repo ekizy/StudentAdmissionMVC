@@ -6,7 +6,7 @@
 <t:genericpage>
 	<jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="label.admission" /></title>
+<title><spring:message code="label.addStudentTitle" /></title>
 
 
 </jsp:attribute>
@@ -18,14 +18,14 @@
 
 <div class="container">
 	<h1 class="admissionHeader1">
-		<spring:message code="label.admissionHeader" />
+		<spring:message code="label.addStudentHeader" />
 	</h1>
 
 	<form:errors path="student1.*" />
 	<!-- Student inputlarında hata varsa göstermek icin -->
 
 <div class="main">
-	<form action="/StudentAdmissionMVC/submitAdmission" method="post">
+	<form action="/StudentAdmissionMVC/submitStudent" method="post">
 
 		<!-- These name tags have to be consistent with java class variables. -->
 

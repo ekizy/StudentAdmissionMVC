@@ -8,7 +8,7 @@
 <t:genericpage>
 <jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="label.admission" /></title>
+<title> ${student.studentName} ${student.studentSurname}</title>
 		<link href="./resources/bootstrap.css" rel="stylesheet"
 			type="text/css">
 		<link href="./resources/style.css" rel="stylesheet"

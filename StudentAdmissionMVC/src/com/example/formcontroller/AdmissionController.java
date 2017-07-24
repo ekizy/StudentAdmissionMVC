@@ -45,8 +45,8 @@ public class AdmissionController {
 
 
 	//Direk objeden page request.
-	@RequestMapping(value="/submitAdmission",method=RequestMethod.POST)
-	public ModelAndView submitAdmissionForm(@Valid @ModelAttribute("student1") Student student1
+	@RequestMapping(value="/submitStudent",method=RequestMethod.POST)
+	public ModelAndView submitStudent(@Valid @ModelAttribute("student1") Student student1
 			,BindingResult result)
 	{
 		//Request parametreleri javascript dosyalarıyla tutarlı olmak zorunda.
@@ -118,47 +118,78 @@ public class AdmissionController {
 	}
 
 
-	/*
-	//Parametreli page request.
-	@RequestMapping(value="/submitAdmission.html",method=RequestMethod.POST)
-   public ModelAndView submitAdmissionForm(
-		   @RequestParam(value="studentName",defaultValue="Mert") String name ,
-           @RequestParam(value="studentHobby",defaultValue="Football") String hobby,
-           @RequestParam(value="studentMobile",defaultValue="0") String phoneNumber,
-           @RequestParam(value="studentBirthDay",defaultValue="0") String birthDay,
-           @RequestParam(value="studentSkills",defaultValue="No Skills") String [] skills)
-   {
-       //These request parameters should be consistent with the javascript file.
+	//Direk objeden page request.
+	@RequestMapping(value="/submitTeacher",method=RequestMethod.POST)
+	public ModelAndView submitTeacher(@Valid @ModelAttribute("teacher") Instructor instructor
+			,BindingResult result)
+	{
+		//Request parametreleri javascript dosyalarıyla tutarlı olmak zorunda.
 
-       Student student = new Student();
-       SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-       try{
-    	   student.setStudentName(name);
-    	   student.setStudentHobby(hobby);
-    	   student.setStudentMobile(Long.parseLong(phoneNumber));
-    	   student.setStudentBirthday(format.parse(birthDay));
+		if(result.hasErrors()) // Sinifla veri baglantisi tutmazsa. Yani hata varsa form geri dondurulur.
+		{
+			ModelAndView model = new ModelAndView("addInstructor"); //javascript dosyasına yönlendirildi.
+            return model;
+		}
 
-    	   ArrayList <String> studentSkills =new ArrayList <String>();
+		//student tablosuna,skills tablosuna ve adres tablosuna veriler eklendi.
 
-    	   for(int i =0;i<skills.length;i++)
-    	   {
-    		   studentSkills.add(skills[i]);
-    	   }
+		DBConnector dbConnector = new DBConnector();
 
-    	   student.setStudentSkills(studentSkills);
-       }
+	/*	try {
+			String studentInsert ="INSERT INTO STUDENTS (name,surname,hobby,birthday,studentnumber,faculty) VALUES ('"+
+					student1.getStudentName().toString()+"','"+student1.getStudentSurname()
+					+"','"+student1.getStudentHobby().toString()+"','"
+					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+",'"
+					+student1.getStudentFaculty()+"');";
 
-       catch(Exception e)
-       {
-    	   System.out.println(e.getStackTrace());
-       }
-       ModelAndView model = new ModelAndView("AdmissionComplete"); // mapping to the javascript file.
-       //model.addObject("promptMessage","The submitted information by you:: Name:" + name +" , Hobby: " + hobby);
-       model.addObject("student1",student);
-       model.addObject("headerMessage","Thanks for the admission");
+			dbConnector.stmt.executeUpdate(studentInsert);
 
-       return model;
-   } */
+
+			dbConnector.rs=dbConnector.stmt.executeQuery("SELECT id from STUDENTS WHERE studentnumber="
+			+Integer.toString(student1.getStudentNumber())+";");
+
+			dbConnector.rs.next();
+
+			int studentID=dbConnector.rs.getInt(1);
+
+			System.out.println(studentID);
+
+
+
+			ArrayList <String> skillList = student1.getStudentSkills();
+
+			System.out.println(skillList.toString());
+
+			for(int i=0;i<skillList.size();i++)
+			{
+				String skillInsert = "INSERT INTO STUDENTSKILLS (studentid,skillname) VALUES("
+			+studentID+",'"+skillList.get(i)+"');";
+				dbConnector.stmt.executeUpdate(skillInsert);
+			}
+
+			String addressInsert="INSERT INTO ADDRESSES (country,city,street,pincode,studentid) VALUES('"+
+			   student1.getStudentAddress().getCountry()+"','"+student1.getStudentAddress().getCity()+"','"+
+			   student1.getStudentAddress().getStreet()+"',"+student1.getStudentAddress().getPincode()+","+
+			   studentID+");";
+
+			dbConnector.stmt.executeUpdate(addressInsert);
+
+			dbConnector.con.close();
+
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+
+		ModelAndView model = new ModelAndView("instructorAddSuccess"); // javascript dosyasına yönlendirildi.
+
+
+		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.
+
+		return model;
+	}
 
 
 

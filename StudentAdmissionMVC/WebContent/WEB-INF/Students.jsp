@@ -8,7 +8,7 @@
 <t:genericpage>
 <jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="label.admission" /></title>
+<title><spring:message code="label.students" /></title>
 
 
 
@@ -20,7 +20,7 @@
   	 </div>
 
 <div class="main">
-<a  href="/EnrollmentSystem/addStudent" class="btn btn-success" role="button">
+<a  href="/StudentAdmissionMVC/addStudent" class="btn btn-success" role="button">
 
 <spring:message code="label.addStudent" />
 
