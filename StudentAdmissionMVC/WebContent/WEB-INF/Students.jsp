@@ -31,9 +31,9 @@
 
 
 <div class="container">
-  <h1 class="studentHeader">All of the students can be seen below</h1>
+  <h1 class="studentHeader"><spring:message code="label.studentHeader1" /></h1>
 
-  <h3 class="studentHeader"> You can click the student name for more details</h3>
+  <h3 class="studentHeader"> <spring:message code="label.studentHeader2" /></h3>
 
   <div class="main">
 

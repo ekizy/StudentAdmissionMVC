@@ -16,7 +16,7 @@
   	 </div>
 
 
-	<h1>${headerMessage}</h1>
+	<h1><spring:message code="label.successfulAdmission"/></h1>
 
 	<h2><spring:message code="label.details"/></h2>
 

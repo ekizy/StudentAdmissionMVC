@@ -42,13 +42,13 @@ public class StudentAPIController {
 	}
 
 	//@ResponseBody
-	@RequestMapping(value="/students/{name}",method=RequestMethod.GET)
-	public Student getStudent(@PathVariable("name") String studentName)
+	@RequestMapping(value="/students/{number}",method=RequestMethod.GET)
+	public Student getStudent(@PathVariable("number") int studentNumber)
 	{
 		//db'den student bilgileri alınır. Projeye db bağlamak lazım.
 
 		Student student = new Student();
-		student.setStudentName(studentName);
+		student.setStudentNumber(studentNumber);
 		return student;
 	}
 	// consume ile body'e sadece json şeklinde input girilmesi sağlanır.

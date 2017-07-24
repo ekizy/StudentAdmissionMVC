@@ -1,7 +1,5 @@
 package com.example.formcontroller;
 
-import java.util.ArrayList;
-
 public class Instructor {
 	private String instructorName;
 	private String instructorSurname;
