@@ -1,5 +1,7 @@
 package com.example.formcontroller;
 
-public class IsValidTitle {
+import javax.validation.ConstraintValidator;
+
+public class IsValidTitle implements ConstraintValidator<IsValidTitle,String> {
 
 }
