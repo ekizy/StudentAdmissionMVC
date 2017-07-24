@@ -1,24 +1,30 @@
 package com.example.formcontroller;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import com.example.validators.IsValidTitle;
 
 public class Instructor {
 
 	@Pattern(regexp="[^0-9]*")
 	private String instructorName;
-
+                                    //isim ve soyisimde sayı olması engellendi.
 	@Pattern(regexp="[^0-9]*")
 	private String instructorSurname;
 
-	@Pattern(regexp="[0-9]{10}")
-	private Long instructorMobile;
+	@Pattern(regexp="(^$|[0-9]{10})")@NotNull// 10 haneli cep telefonu olması sağlandı
+	private String instructorMobile;
 
-	
+	@IsValidTitle() // Yapay bir annotation ile titlelar kontrol ediliyor.
 	private String instructorTitle;
 
+	@Min(1) @Max(100) //Ofis numaraları 1 ile 100 arasında olacak şekilde ayarlandı
 	private int instructorOffice;
 
-	@Pattern(regexp="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+	@Pattern(regexp="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" //E-mail kalıbına uyma zorunluluğu sağlandı.
    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 	private String instructorEmail;
 
@@ -32,12 +38,7 @@ public class Instructor {
 	public void setInstructorName(String instructorName) {
 		this.instructorName = instructorName;
 	}
-	public Long getInstructorMobile() {
-		return instructorMobile;
-	}
-	public void setInstructorMobile(Long instructorMobile) {
-		this.instructorMobile = instructorMobile;
-	}
+
 	public String getInstructorTitle() {
 		return instructorTitle;
 	}
@@ -66,5 +67,14 @@ public class Instructor {
 	public void setInstructorSurname(String instructorSurname) {
 		this.instructorSurname = instructorSurname;
 	}
+
+	public String getInstructorMobile() {
+		return instructorMobile;
+	}
+
+	public void setInstructorMobile(String instructorMobile) {
+		this.instructorMobile = instructorMobile;
+	}
+
 
 }

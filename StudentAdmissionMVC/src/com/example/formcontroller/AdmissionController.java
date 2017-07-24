@@ -32,9 +32,6 @@ public class AdmissionController {
 		binder.registerCustomEditor(Date.class,"studentBirthday",new CustomDateEditor(format,false));
 		//Dogum gunu alani icin yeni bir format tanimlandi.
 
-		binder.registerCustomEditor(String.class,"studentHobby",new StudentHobbyEditor());
-		//hobby icin editor kaydedildi.
-
 	}
 
 	@ModelAttribute
@@ -111,7 +108,7 @@ public class AdmissionController {
 
 		ModelAndView model = new ModelAndView("studentAddSuccess"); // javascript dosyasına yönlendirildi.
 
-
+		model.addObject("student1",student1);
 		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.
 
 		return model;
@@ -123,7 +120,9 @@ public class AdmissionController {
 	public ModelAndView submitInstructor(@Valid @ModelAttribute("instructor") Instructor instructor
 			,BindingResult result)
 	{
+
 		//Request parametreleri javascript dosyalarıyla tutarlı olmak zorunda.
+
 
 		if(result.hasErrors()) // Sinifla veri baglantisi tutmazsa. Yani hata varsa form geri dondurulur.
 		{
@@ -131,14 +130,12 @@ public class AdmissionController {
             return model;
 		}
 
-		//student tablosuna,skills tablosuna ve adres tablosuna veriler eklendi.
-
 		DBConnector dbConnector = new DBConnector();
 
 		try {
 			String instructorInsert ="INSERT INTO INSTRUCTORS (name,surname,mobile,title,email) VALUES ('"+
 					instructor.getInstructorName()+"','"+instructor.getInstructorSurname()
-					+"',"+instructor.getInstructorMobile()+",'"
+					+"','"+instructor.getInstructorMobile()+"','"
 					+instructor.getInstructorTitle()+"','"+instructor.getInstructorEmail()+"');";
 
 			dbConnector.stmt.executeUpdate(instructorInsert);
@@ -163,6 +160,8 @@ public class AdmissionController {
 		}
 
 		ModelAndView model = new ModelAndView("instructorAddSuccess"); // javascript dosyasına yönlendirildi.
+
+		model.addObject("teacher",instructor);
 
 
 		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.

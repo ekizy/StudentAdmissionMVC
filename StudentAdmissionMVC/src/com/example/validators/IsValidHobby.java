@@ -1,4 +1,4 @@
-package com.example.formcontroller;
+package com.example.validators;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,9 +17,10 @@ import javax.validation.Payload;
 //HobbyValidator'ın interface'i. Annotation class'ı da denebilir. Bu adla annotation acilir.
 
 public @interface IsValidHobby {
-	 String message();
+	 String message() default "Please provide a valid Hobby; " +
+               "accepted hobies are Music,Football,Basketball,Hockey,Books and Movies";
 
-	 String listOfValidValues();
+	 String listOfValidValues() default "Music|Football|Basketball|Hockey|Books|Movies";
 
 	 Class <?>[] groups() default {};
 

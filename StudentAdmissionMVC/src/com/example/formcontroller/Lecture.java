@@ -1,9 +1,12 @@
 package com.example.formcontroller;
 
+import com.example.validators.IsValidLanguage;
+
 public class Lecture {
 
 	private Course course;
 	private Instructor instructor;
+	@IsValidLanguage()
 	private String instructionLanguage;
 	public Course getCourse() {
 		return course;

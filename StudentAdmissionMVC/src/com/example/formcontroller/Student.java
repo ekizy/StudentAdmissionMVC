@@ -8,6 +8,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.example.validators.IsValidHobby;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -27,8 +29,7 @@ public class Student {
 	//@Size(min=2,max=20,message="Please give a value for hobby which has a length between {min} and {max}")
 	//Hataya ozel mesaj da verilebilir.
 
-	@Size(min=2,max=20) @IsValidHobby(listOfValidValues="Music|Football|Basketball|Hockey|Books",
-			message="Please write a valid hobby")
+	@Size(min=2,max=20) @IsValidHobby()
 	//isValidHobby yapay annotation. Ici bos da kalabilir. listenin default valuesu var isValid class'ında
 	private String studentHobby;
 
@@ -36,8 +37,6 @@ public class Student {
 	private Date studentBirthday; //tarih formati. DD/MM/YYYY seklinde olmali.
 
 	private ArrayList<String> studentSkills;
-
-	//Ayrıca @Future,@Min,@NotNull,@NotEmpty gibi annotationlar da var.
 
 	private Address studentAddress; //adres sinifi student sinifinda kullanildi.
 
