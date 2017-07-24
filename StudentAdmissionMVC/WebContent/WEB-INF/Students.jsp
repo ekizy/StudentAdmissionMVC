@@ -20,7 +20,11 @@
   	 </div>
 
 <div class="main">
-<a  href="/StudentAdmissionMVC/getAdmission" class="btn btn-success" role="button">Add a Student</a>
+<a  href="/EnrollmentSystem/addStudent" class="btn btn-success" role="button">
+
+<spring:message code="label.addStudent" />
+
+</a>
 </div>
 
 

@@ -77,12 +77,16 @@ public class NavigatorController {
 		return model;
 	}
 
-	@RequestMapping(value="/teachers",method=RequestMethod.GET)
-	public ModelAndView getTeachers()
+	@RequestMapping(value="/instructors",method=RequestMethod.GET)
+	public ModelAndView getInstructors()
 	{
-		ModelAndView model = new ModelAndView("Teachers");//javascript dosyasına mapping yapıldı.
+		ModelAndView model = new ModelAndView("Instructors");//javascript dosyasına mapping yapıldı.
 
-		//DBConnector db= new DBConnector();
+		DBConnector db= new DBConnector();
+
+		ArrayList <Instructor> teacherList = new ArrayList <Instructor>();
+
+		String instructorQuery="SELECT * from INSTRUCTORS;";
 
 		return model;
 	}
@@ -96,10 +100,18 @@ public class NavigatorController {
 		return model;
 	}
 
-	@RequestMapping(value="/getAdmission",method=RequestMethod.GET)
-	public ModelAndView getAdmissionForm()
+	@RequestMapping(value="/addStudent",method=RequestMethod.GET)
+	public ModelAndView newStudent()
 	{
-		ModelAndView model = new ModelAndView("AdmissionForm"); //javascript dosyasına mapping yapıldı.
+		ModelAndView model = new ModelAndView("addStudent"); //javascript dosyasına mapping yapıldı.
+
+		return model;
+	}
+
+	@RequestMapping(value="/addInstructor",method=RequestMethod.GET)
+	public ModelAndView newInstructor()
+	{
+		ModelAndView model = new ModelAndView("addInstructor"); //javascript dosyasına mapping yapıldı.
 
 		return model;
 	}

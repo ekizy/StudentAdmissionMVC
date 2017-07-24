@@ -12,6 +12,10 @@
 
 <jsp:body>
 
+  	 <div style="height: 52px;">
+  	 </div>
+
+
 <h1>Student Admission MVC</h1>
 
 <h3>

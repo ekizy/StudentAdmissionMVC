@@ -37,6 +37,11 @@
 			<td>${student.studentName}</td>
 		</tr>
 
+				<tr>
+			<td><spring:message code="label.studentSurname" /></td>
+			<td>${student.studentSurname}</td>
+		</tr>
+
 		<tr>
 			<td><spring:message code="label.studentNumber" /></td>
 			<td>${student.studentNumber}</td>

@@ -53,7 +53,7 @@ public class AdmissionController {
 
 		if(result.hasErrors()) // Sinifla veri baglantisi tutmazsa. Yani hata varsa form geri dondurulur.
 		{
-			ModelAndView model = new ModelAndView("AdmissionForm"); //mapping to the javascript file
+			ModelAndView model = new ModelAndView("addStudent"); //javascript dosyasına yönlendirildi.
             return model;
 		}
 
@@ -109,9 +109,8 @@ public class AdmissionController {
 			e.printStackTrace();
 		}
 
-		ModelAndView model = new ModelAndView("AdmissionComplete"); // mapping to the javascript file.
-		//model.addObject("promptMessage","The submitted information by you:: Name:" + name +" , Hobby: " + hobby);
-		//model.addObject("headerMessage","Thanks for the admission");
+		ModelAndView model = new ModelAndView("studentAddSuccess"); // javascript dosyasına yönlendirildi.
+
 
 		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.
 
