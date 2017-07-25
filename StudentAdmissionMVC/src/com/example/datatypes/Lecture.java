@@ -8,6 +8,8 @@ public class Lecture {
 	private Instructor instructor;
 	@IsValidLanguage()
 	private String instructionLanguage;
+	private String classRoom;
+	private String dayTime;
 	public Course getCourse() {
 		return course;
 	}
@@ -25,6 +27,18 @@ public class Lecture {
 	}
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
+	}
+	public String getDayTime() {
+		return dayTime;
+	}
+	public void setDayTime(String dayTime) {
+		this.dayTime = dayTime;
+	}
+	public String getClassRoom() {
+		return classRoom;
+	}
+	public void setClassRoom(String classRoom) {
+		this.classRoom = classRoom;
 	}
 
 }
