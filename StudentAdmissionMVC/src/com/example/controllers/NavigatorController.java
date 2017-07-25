@@ -1,4 +1,4 @@
-package com.example.formcontroller;
+package com.example.controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.datatypes.Address;
+import com.example.datatypes.Instructor;
+import com.example.datatypes.Student;
 import com.example.db.DBConnector;
 
 @Controller
@@ -84,10 +87,34 @@ public class NavigatorController {
 
 		DBConnector db= new DBConnector();
 
-		ArrayList <Instructor> teacherList = new ArrayList <Instructor>();
+		ArrayList <Instructor> instructorList = new ArrayList <Instructor>();
 
 		String instructorQuery="SELECT * from INSTRUCTORS;";
 
+		try {
+			db.rs=db.stmt.executeQuery(instructorQuery);
+
+			while(db.rs.next())
+			{
+				Instructor instructor = new Instructor();
+				int instructorID= db.rs.getInt(1);
+
+				instructor.setInstructorName(db.rs.getString(2));
+				instructor.setInstructorSurname(db.rs.getString(3));
+				instructor.setInstructorMobile(db.rs.getString(4));
+				instructor.setInstructorTitle(db.rs.getString(5));
+				instructor.setInstructorEmail(db.rs.getString(6));
+
+				instructorList.add(instructor);
+
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		model.addObject("teachers",instructorList);
 		return model;
 	}
 

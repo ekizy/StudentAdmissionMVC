@@ -1,4 +1,4 @@
-package com.example.formcontroller;
+package com.example.datatypes;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -15,16 +15,16 @@ public class Instructor {
 	@Pattern(regexp="[^0-9]*")
 	private String instructorSurname;
 
-	@Pattern(regexp="(^$|[0-9]{10})")@NotNull// 10 haneli cep telefonu olması sağlandı
+	@Pattern(regexp="(^$|[0-9]{10})")@NotNull // Cep numarasına 10 hane kıstası getirildi
 	private String instructorMobile;
 
-	@IsValidTitle() // Yapay bir annotation ile titlelar kontrol ediliyor.
+	@IsValidTitle() // Yapay bir annotation ile titlelar kontrol edildi.
 	private String instructorTitle;
 
 	@Min(1) @Max(100) //Ofis numaraları 1 ile 100 arasında olacak şekilde ayarlandı
 	private int instructorOffice;
 
-	@Pattern(regexp="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" //E-mail kalıbına uyma zorunluluğu sağlandı.
+	@Pattern(regexp="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" //E-mail kalıbına uydurmak yazılan regular expression
    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 	private String instructorEmail;
 

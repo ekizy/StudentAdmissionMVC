@@ -1,4 +1,4 @@
-package com.example.formcontroller;
+package com.example.datatypes;
 
 public class Course {
 

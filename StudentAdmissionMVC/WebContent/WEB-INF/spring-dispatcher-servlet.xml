@@ -10,8 +10,13 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<context:component-scan base-package="com.example.formcontroller" />
+	<!-- Gereksiz olabilir bir denersin. --><context:component-scan base-package="com.example.validators" />
+
+
+	<context:component-scan base-package="com.example.controllers" />
 	<mvc:annotation-driven />
+
+
 
 
 	<bean id="viewResolver"
@@ -32,7 +37,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/getAdmission.html" />
-			<bean class="com.example.formcontroller.SundayInterceptor" />
+			<bean class="com.example.controllers.SundayInterceptor" />
 		</mvc:interceptor>
 
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
@@ -69,23 +74,6 @@
 		<!-- Varsayılan tema yeşil seçildi -->
 		<property name="defaultThemeName" value="green" />
 	</bean>
-
-<!-- Bean yoluyla da exception handle edilebilir. -->
-
-<!-- 	<bean id="simpleMappingExceptionResolver" -->
-<!--		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
-<!--		<property name="exceptionMappings">-->
-<!--			<map>-->
-			<!-- Spesifik exceptionlar buradan handle edililir. -->
-<!--				<entry key="NullPointerException" value="NullPointerException" />-->
-<!--				<entry key="IOException" value="IOException" />-->
-<!--			</map>-->
-<!--		</property>-->
-	<!-- Genel bir hata ise düz exception olarak handle edilir. -->
-<!--		<property name="defaultErrorView" value="Exception" />-->
-<!--		<property name="warnLogCategory" value="MVCLogger" />-->
-<!--	</bean>-->
-
 
 
 </beans>

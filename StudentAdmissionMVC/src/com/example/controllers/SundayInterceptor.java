@@ -1,11 +1,9 @@
-package com.example.formcontroller;
+package com.example.controllers;
 
 import java.io.IOException;
 import java.util.Calendar;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -24,7 +22,9 @@ public class SundayInterceptor extends HandlerInterceptorAdapter{
 
 		if(dayOfWeek ==1)
 		{
-			response.getWriter().write("The website does not work on Sunday. Please try another day");
+
+	    	response.getWriter().write("The website does not work on Sunday. Please try another day");
+			//properties dosyalarına eklersin.
 			return false;
 		}
 		else return true;

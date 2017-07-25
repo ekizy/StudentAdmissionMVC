@@ -16,6 +16,10 @@
   	 <div style="height:52px;">
   	 </div>
 
+  	 <h1><spring:message code="label.welcome" /></h1>
+
+  	 <h3><spring:message code="label.homeMessage" /></h3>
+
 
 
 

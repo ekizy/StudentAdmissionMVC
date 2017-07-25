@@ -1,4 +1,4 @@
-package com.example.formcontroller;
+package com.example.controllers;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.datatypes.Instructor;
+import com.example.datatypes.Student;
 import com.example.db.DBConnector;
 
 @Controller
