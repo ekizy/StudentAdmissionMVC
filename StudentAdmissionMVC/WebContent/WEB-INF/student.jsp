@@ -22,7 +22,7 @@
 
 <div class="container">
 
-<h1> <spring:message code="label.choosenStudent" /> </h1>
+<h1 class="studentHeader"> <spring:message code="label.choosenStudent" /> </h1>
 
 
 <div class="main">
@@ -74,8 +74,16 @@
 		</tr>
 	</table>
 
-
 </div>
+
+<form action="/StudentAdmissionMVC/deleteStudent" method="post">
+
+		<button class="btn btn-danger"
+						style="margin: 0 auto; display: block;">
+					<spring:message code="label.deleteStudent" />  </button>
+
+</form>
+
 
 </div>
 

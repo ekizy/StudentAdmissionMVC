@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -59,12 +60,19 @@ public class AdmissionController {
 		//student tablosuna,skills tablosuna ve adres tablosuna veriler eklendi.
 
 		DBConnector dbConnector = new DBConnector();
+		String studentBirthday="";
 
 		try {
+
+			DateFormat outputFormatter = new SimpleDateFormat("dd/MM/yyyy");
+			studentBirthday = outputFormatter.format(student1.getStudentBirthday()); // Output : 01/20/2012
+
+			System.out.println(studentBirthday);
+
 			String studentInsert ="INSERT INTO STUDENTS (name,surname,hobby,birthday,studentnumber,faculty) VALUES ('"+
 					student1.getStudentName().toString()+"','"+student1.getStudentSurname()
 					+"','"+student1.getStudentHobby().toString()+"','"
-					+student1.getStudentBirthday().toString()+"',"+student1.getStudentNumber()+",'"
+					+studentBirthday+"',"+student1.getStudentNumber()+",'"
 					+student1.getStudentFaculty()+"');";
 
 			dbConnector.stmt.executeUpdate(studentInsert);
@@ -111,6 +119,7 @@ public class AdmissionController {
 		ModelAndView model = new ModelAndView("studentAddSuccess"); // javascript dosyasına yönlendirildi.
 
 		model.addObject("student1",student1);
+		model.addObject("studentBirthday", studentBirthday);
 		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.
 
 		return model;

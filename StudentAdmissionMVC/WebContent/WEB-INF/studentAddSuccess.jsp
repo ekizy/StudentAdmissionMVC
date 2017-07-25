@@ -42,7 +42,7 @@
 
 		<tr>
 			<td><spring:message code="label.studentBirthday" /></td>
-			<td>${student1.studentBirthday}</td>
+			<td>${studentBirthday}</td>
 		</tr>
 		<tr>
 			<td><spring:message code="label.studentSkills" /></td>

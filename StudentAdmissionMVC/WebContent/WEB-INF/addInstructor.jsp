@@ -66,7 +66,7 @@
 
 <p style="text-align: center;"> <spring:message
 							code="label.submitMessage" /> </p>
-		<button class="btn btn-success"
+		<button class="btn btn-primary"
 						style="margin: 0 auto; display: block;">
 					<spring:message code="label.submit" />  </button>
 
