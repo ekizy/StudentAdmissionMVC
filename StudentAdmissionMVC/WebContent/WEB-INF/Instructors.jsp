@@ -38,27 +38,31 @@
   <div class="main">
 
 
- <!--  <table class="table">
+ <table class="table">
     <thead>
       <tr>
-        <th><spring:message code="label.studentName" /></th>
-        <th><spring:message code="label.studentSurname" /></th>
-        <th><spring:message code="label.studentNumber" /></th>
-        <th><spring:message code="label.studentFaculty" /></th>
+        <th><spring:message code="label.instructorName" /></th>
+        <th><spring:message code="label.instructorSurname" /></th>
+        <th><spring:message code="label.instructorMobile" /></th>
+        <th><spring:message code="label.title" /></th>
+        <th><spring:message code="label.office" /></th>
+
       </tr>
     </thead>
     <tbody>
-		  	 <c:forEach items="${students}" var="student">
+		  	 <c:forEach items="${instructors}" var="instructor">
 		  	 <tr>
-		  	 <td><a href="/StudentAdmissionMVC/${student.studentNumber }" style="color:black;">${student.studentName }</a> </td>
-		  	 <td> ${student.studentSurname }</td>
-		  	 <td> ${student.studentNumber }</td>
-		  	 <td> ${student.studentFaculty }</td>
+		  	 <td><a href="/StudentAdmissionMVC/instructor/${instructor.instructorName}_${instructor.instructorSurname}"
+		  	 style="color:black;">${instructor.instructorName }</a> </td>
+		  	 <td> ${instructor.instructorSurname }</td>
+		  	 <td> ${instructor.instructorMobile}</td>
+		  	 <td>${instructor.instructorTitle }</td>
+		  	 <td>${instructor.instructorOffice }</td>
 
 		  	 </tr>
 </c:forEach>
     </tbody>
-  </table>-->
+  </table>
 
   </div>
 </div>

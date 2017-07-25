@@ -8,11 +8,7 @@
 <t:genericpage>
 <jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> ${student.studentName} ${student.studentSurname}</title>
-		<link href="./resources/bootstrap.css" rel="stylesheet"
-			type="text/css">
-		<link href="./resources/style.css" rel="stylesheet"
-			type="text/css">
+<title>Student- ${student.studentName} ${student.studentSurname}</title>
 
 
 </jsp:attribute>
@@ -26,7 +22,7 @@
 
 <div class="container">
 
-<h1> In this page you can see choosen student's all of information. </h1>
+<h1> <spring:message code="label.choosenStudent" /> </h1>
 
 
 <div class="main">

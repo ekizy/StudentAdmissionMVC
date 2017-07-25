@@ -19,7 +19,7 @@
 <h1>Student Admission MVC</h1>
 
 <h3>
-There is an error in application. In order to get help please contact me with this e-mail ekizy@itu.edu.tr
+There is an error in application. In order to get help please contact us
 </h3>
 </jsp:body>
 

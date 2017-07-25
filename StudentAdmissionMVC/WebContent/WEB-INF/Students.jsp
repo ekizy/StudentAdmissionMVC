@@ -50,7 +50,7 @@
     <tbody>
 		  	 <c:forEach items="${students}" var="student">
 		  	 <tr>
-		  	 <td><a href="/StudentAdmissionMVC/${student.studentNumber }" style="color:black;">${student.studentName }</a> </td>
+		  	 <td><a href="/StudentAdmissionMVC/student/${student.studentNumber }" style="color:black;">${student.studentName }</a> </td>
 		  	 <td> ${student.studentSurname }</td>
 		  	 <td> ${student.studentNumber }</td>
 		  	 <td> ${student.studentFaculty }</td>

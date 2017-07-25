@@ -138,7 +138,8 @@ public class AdmissionController {
 			String instructorInsert ="INSERT INTO INSTRUCTORS (name,surname,mobile,title,email) VALUES ('"+
 					instructor.getInstructorName()+"','"+instructor.getInstructorSurname()
 					+"','"+instructor.getInstructorMobile()+"','"
-					+instructor.getInstructorTitle()+"','"+instructor.getInstructorEmail()+"');";
+					+instructor.getInstructorTitle()+"','"+instructor.getInstructorEmail()+"',"+instructor.getInstructorOffice()
+					+");";
 
 			dbConnector.stmt.executeUpdate(instructorInsert);
 

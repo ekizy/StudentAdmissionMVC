@@ -104,6 +104,7 @@ public class NavigatorController {
 				instructor.setInstructorMobile(db.rs.getString(4));
 				instructor.setInstructorTitle(db.rs.getString(5));
 				instructor.setInstructorEmail(db.rs.getString(6));
+				instructor.setInstructorOffice(db.rs.getInt(7));
 
 				instructorList.add(instructor);
 
@@ -114,7 +115,7 @@ public class NavigatorController {
 			e.printStackTrace();
 		}
 
-		model.addObject("teachers",instructorList);
+		model.addObject("instructors",instructorList);
 		return model;
 	}
 
@@ -143,7 +144,7 @@ public class NavigatorController {
 		return model;
 	}
 
-	@RequestMapping(value="/{studentNumber}",method=RequestMethod.GET)
+	@RequestMapping(value="/student/{studentNumber}",method=RequestMethod.GET)
 	public ModelAndView viewStudent(@PathVariable("studentNumber") int studentNumber)
 	{
 
@@ -218,5 +219,39 @@ public class NavigatorController {
 		return model;
 	}
 
+	@RequestMapping(value="/instructor/{instructorName}_{instructorSurname}",method=RequestMethod.GET)
+	public ModelAndView viewInstructor(@PathVariable("instructorName") String instructorName,
+			@PathVariable("instructorSurname") String instructorSurname)
+	{
+		ModelAndView model = new ModelAndView("instructor");
+
+		DBConnector dbConnector=new DBConnector();
+
+		Instructor instructor = new Instructor();
+
+		String query="SELECT * from INSTRUCTORS WHERE name='"+instructorName+"' AND surname='"+instructorSurname+"' ;";
+
+		try {
+			dbConnector.rs=dbConnector.stmt.executeQuery(query);
+			dbConnector.rs.next();
+
+			int instructorID = dbConnector.rs.getInt(1);
+			instructor.setInstructorName(dbConnector.rs.getString(2));
+			instructor.setInstructorSurname(dbConnector.rs.getString(3));
+			instructor.setInstructorMobile(dbConnector.rs.getString(4));
+			instructor.setInstructorTitle(dbConnector.rs.getString(5));
+			instructor.setInstructorEmail(dbConnector.rs.getString(6));
+			instructor.setInstructorOffice(dbConnector.rs.getInt(7));
+
+			model.addObject("instructor",instructor);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		return model;
+	}
 
 }
