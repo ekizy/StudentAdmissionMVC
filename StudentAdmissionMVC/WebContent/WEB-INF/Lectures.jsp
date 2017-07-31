@@ -41,17 +41,23 @@
 <table class="table">
     <thead>
       <tr>
-        <th><spring:message code="label.courseName" /></th>
         <th><spring:message code="label.courseCode" /></th>
+        <th><spring:message code="label.instructor" /> </th>
+        <th><spring:message code="label.language" /> </th>
+        <th><spring:message code="label.classroom" /> </th>
+        <th><spring:message code="label.daytime" /> </th>
+
 
       </tr>
     </thead>
     <tbody>
-		  	 <c:forEach items="${courses}" var="course">
+		  	 <c:forEach items="${lectures}" var="lecture">
 		  	 <tr>
-		  	 <td>${course.courseName } </td>
-		  	 <td> ${course.course }</td>
-
+		  	 <td>${lecture.course.courseCode} </td>
+		  	 <td> ${lecture.instructor.instructorName} ${lecture.instructor.instructorsurName}</td>
+			<td> ${lecture.language}</td>
+			<td> ${lecture.classroom}</td>
+			<td> ${lecture.daytime}</td>
 		  	 </tr>
 </c:forEach>
     </tbody>

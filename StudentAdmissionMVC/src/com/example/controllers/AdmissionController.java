@@ -40,7 +40,7 @@ public class AdmissionController {
 	@ModelAttribute
 	public void addingCommonObjects(Model model1)
 	{
-		model1.addAttribute("commonMessage","Welcome to the page");
+		model1.addAttribute("commonMessage","Welcome to the website");
 	}
 
 
