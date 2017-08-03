@@ -1,6 +1,8 @@
 package com.example.controllers;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.datatypes.Course;
 import com.example.datatypes.Instructor;
+import com.example.datatypes.Lecture;
 import com.example.datatypes.Student;
 import com.example.db.DBConnector;
 
@@ -126,16 +130,12 @@ public class AdmissionController {
 	}
 
 
-	//Direk objeden page request.
 	@RequestMapping(value="/submitInstructor",method=RequestMethod.POST)
 	public ModelAndView submitInstructor(@Valid @ModelAttribute("instructor") Instructor instructor
 			,BindingResult result)
 	{
 
-		//Request parametreleri javascript dosyalarıyla tutarlı olmak zorunda.
-
-
-		if(result.hasErrors()) // Sinifla veri baglantisi tutmazsa. Yani hata varsa form geri dondurulur.
+		if(result.hasErrors()) // Hata kontrol edildi.
 		{
 			ModelAndView model = new ModelAndView("addInstructor"); //javascript dosyasına yönlendirildi.
             return model;
@@ -176,12 +176,108 @@ public class AdmissionController {
 		model.addObject("teacher",instructor);
 
 
-		//Modele farklı türlerde objeler eklenip javascript dosyalarından bu objeler yansıtılabilir.
+		return model;
+	}
+
+	@RequestMapping(value="/submitLecture",method=RequestMethod.POST)
+	public ModelAndView submitLecture(@Valid @ModelAttribute("lecture") Lecture lecture,
+			@ModelAttribute("courseCode") String courseCode,@ModelAttribute("instructorFullname") String instructorFullname,
+			BindingResult result)
+	{
+
+		if(result.hasErrors()) // Hata kontrol edildi.
+		{
+			ModelAndView model = new ModelAndView("addLecture"); //javascript dosyasına yönlendirildi.
+            return model;
+		}
+
+		DBConnector db = new DBConnector();
+		String instructorName ="";
+		String instructorSurname="";
+
+		try {
+			String courseQuery="SELECT id from COURSES where coursecode='"+courseCode+"'";
+			Statement courseStatement= db.con.createStatement();
+			ResultSet courseResult= courseStatement.executeQuery(courseQuery);
+
+			courseResult.next();
+			int courseID =courseResult.getInt(1);
+
+			String [] fullname= instructorFullname.split("-");
+			instructorName= fullname[0];
+			instructorSurname= fullname[1];
+
+			String instructorQuery="SELECT id from INSTRUCTORS where name='"+instructorName+
+					"' AND surname='"+instructorSurname+"'";
+
+			Statement instructorStatement= db.con.createStatement();
+			ResultSet instructorResult= courseStatement.executeQuery(instructorQuery);
+
+			instructorResult.next();
+			int instructorID=instructorResult.getInt(1);
+
+			String lectureInsert ="INSERT INTO LECTURES (courseid,instructorid,instructionlang,classroom,daytime) VALUES ("+
+					courseID+","+instructorID
+					+",'"+lecture.getInstructionLanguage()+"','"
+					+lecture.getClassRoom()+"','"+lecture.getDayTime()+"');";
+
+			db.stmt.executeUpdate(lectureInsert);
+
+			db.con.close();
+
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ModelAndView model = new ModelAndView("lectureAddSuccess"); // javascript dosyasına yönlendirildi.
+
+		model.addObject("lecture",lecture);
+		model.addObject("instructorName",instructorName);
+		model.addObject("instructorSurname",instructorSurname);
+		model.addObject("courseCode",courseCode);
+
 
 		return model;
 	}
 
+	@RequestMapping(value="/submitCourse",method=RequestMethod.POST)
+	public ModelAndView submitCourse(@Valid @ModelAttribute("course") Course course,BindingResult result)
+	{
 
+		if(result.hasErrors()) // Hata kontrol edildi.
+		{
+			ModelAndView model = new ModelAndView("addCourse"); //javascript dosyasına yönlendirildi.
+            return model;
+		}
+
+		DBConnector dbConnector = new DBConnector();
+
+		try {
+
+			String courseInsert ="INSERT INTO COURSES (coursename,coursecode) VALUES ('"+ course.getCourseName()+"','"+
+			course.getCourseCode()+"');";
+
+			dbConnector.stmt.executeUpdate(courseInsert);
+
+			dbConnector.con.close();
+
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ModelAndView model = new ModelAndView("courseAddSuccess"); // javascript dosyasına yönlendirildi.
+
+		model.addObject("course",course);
+
+
+		return model;
+	}
 
 
 

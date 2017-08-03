@@ -8,7 +8,7 @@
 <t:genericpage>
 <jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="label.teachers" /></title>
+<title><spring:message code="label.courses" /></title>
 
 
 
@@ -20,9 +20,9 @@
   	 </div>
 
 <div class="main">
-<a  href="/StudentAdmissionMVC/addInstructor" class="btn btn-success" role="button">
+<a  href="/StudentAdmissionMVC/addCourse" class="btn btn-success" role="button">
 
-<spring:message code="label.addTeacher" />
+<spring:message code="label.addCourse" />
 
 </a>
 </div>
@@ -31,9 +31,7 @@
 
 
 <div class="container">
-  <h1 class="studentHeader"><spring:message code="label.teacherHeader1" /></h1>
-
-  <h3 class="studentHeader"> <spring:message code="label.teacherHeader2" /></h3>
+  <h1 class="studentHeader"><spring:message code="label.courseHeader" /></h1>
 
   <div class="main">
 
@@ -50,7 +48,7 @@
 		  	 <c:forEach items="${courses}" var="course">
 		  	 <tr>
 		  	 <td>${course.courseName } </td>
-		  	 <td> ${course.course }</td>
+		  	 <td> ${course.courseCode }</td>
 
 		  	 </tr>
 </c:forEach>

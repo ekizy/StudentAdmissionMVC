@@ -8,7 +8,7 @@
 <t:genericpage>
 <jsp:attribute name="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="label.teachers" /></title>
+<title><spring:message code="label.lectures" /></title>
 
 
 
@@ -20,9 +20,9 @@
   	 </div>
 
 <div class="main">
-<a  href="/StudentAdmissionMVC/addInstructor" class="btn btn-success" role="button">
+<a  href="/StudentAdmissionMVC/addLecture" class="btn btn-success" role="button">
 
-<spring:message code="label.addTeacher" />
+<spring:message code="label.addLecture" />
 
 </a>
 </div>
@@ -31,9 +31,9 @@
 
 
 <div class="container">
-  <h1 class="studentHeader"><spring:message code="label.teacherHeader1" /></h1>
+  <h1 class="studentHeader"><spring:message code="label.lectureHeader1" /></h1>
 
-  <h3 class="studentHeader"> <spring:message code="label.teacherHeader2" /></h3>
+  <h3 class="studentHeader"> <spring:message code="label.lectureHeader2" /></h3>
 
   <div class="main">
 
@@ -43,7 +43,7 @@
       <tr>
         <th><spring:message code="label.courseCode" /></th>
         <th><spring:message code="label.instructor" /> </th>
-        <th><spring:message code="label.language" /> </th>
+        <th><spring:message code="label.instructionLanguage" /> </th>
         <th><spring:message code="label.classroom" /> </th>
         <th><spring:message code="label.daytime" /> </th>
 
@@ -54,10 +54,10 @@
 		  	 <c:forEach items="${lectures}" var="lecture">
 		  	 <tr>
 		  	 <td>${lecture.course.courseCode} </td>
-		  	 <td> ${lecture.instructor.instructorName} ${lecture.instructor.instructorsurName}</td>
-			<td> ${lecture.language}</td>
-			<td> ${lecture.classroom}</td>
-			<td> ${lecture.daytime}</td>
+		  	 <td> ${lecture.instructor.instructorName} ${lecture.instructor.instructorSurname}</td>
+			<td> ${lecture.instructionLanguage}</td>
+			<td> ${lecture.classRoom}</td>
+			<td> ${lecture.dayTime}</td>
 		  	 </tr>
 </c:forEach>
     </tbody>
