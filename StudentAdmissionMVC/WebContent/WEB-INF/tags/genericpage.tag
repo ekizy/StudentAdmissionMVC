@@ -28,7 +28,7 @@
 					<li><a href="/StudentAdmissionMVC/instructors"><spring:message code="label.teachers" /></a></li>
 					<li><a href="/StudentAdmissionMVC/lectures"><spring:message code="label.lectures" /> </a></li>
 					<li><a href="/StudentAdmissionMVC/courses"><spring:message code="label.courses" /> </a> </li>
-					<li> <a><spring:message code="label.enrollStudent" /> </a></li>
+					<li> <a href="/StudentAdmissionMVC/enrollStudent"><spring:message code="label.enrollStudent" /> </a></li>
 					<li><a href="/StudentAdmissionMVC/contact"><spring:message code="label.contact" /></a></li>
 				</ul>
 

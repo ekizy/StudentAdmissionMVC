@@ -24,14 +24,14 @@
 
 
 <div class="main">
-	<form action="/StudentAdmissionMVC/enrollSuccess" method="post">
+	<form action="/StudentAdmissionMVC/submitEnrollment" method="post">
 
 		<!-- Inputlarla classların eşleşebilmesi için name taglerine classlardaki değişkenlerin adı verilmiştir. -->
 
 		<table>
 			<tr>
 				<td><spring:message code="label.studentName" /></td>
-				<td><select class="form-control" name="courseCode">
+				<td><select class="form-control" name="studentFullName">
 
 								  	 <c:forEach items="${students}" var="student">
 								  	 <option value="${student.studentName}-${student.studentSurname} ">
@@ -46,7 +46,7 @@
 				<td><select class="form-control" name="lecture">
 
 								  	 <c:forEach items="${lectures}" var="lecture">
-								  	 <option value="${lecture.course.courseCode}-${lecture.dayTime} ">
+								  	 <option value="${lecture.course.courseCode}/${lecture.dayTime} ">
 										${lecture.course.courseCode} ${lecture.dayTime}
 										</option>
 							</c:forEach>

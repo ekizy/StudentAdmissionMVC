@@ -424,13 +424,23 @@ public class NavigatorController {
 			dbConnector.rs=dbConnector.stmt.executeQuery(lectureQuery);
 			while(dbConnector.rs.next())
 			{
+				String s1=dbConnector.rs.getString(1);
+				String s2=dbConnector.rs.getString(2);
+				String s3=dbConnector.rs.getString(3);
+				String s4=dbConnector.rs.getString(4);
+				String s5=dbConnector.rs.getString(5);
+				String s6=dbConnector.rs.getString(6);
+				String s7=dbConnector.rs.getString(7);
+				String s8=dbConnector.rs.getString(8);
+				String s9=dbConnector.rs.getString(9);
+
 				Lecture lecture = new Lecture();
 				Course course = new Course();
 				lecture.setDayTime(dbConnector.rs.getString(6));
 				lecture.setClassRoom(dbConnector.rs.getString(5));
 
-				course.setCourseName(dbConnector.rs.getString(7));
-				course.setCourseCode(dbConnector.rs.getString(8));
+				course.setCourseName(dbConnector.rs.getString(8));
+				course.setCourseCode(dbConnector.rs.getString(9));
 
 				lecture.setCourse(course);
 				lecture.setInstructionLanguage(dbConnector.rs.getString(4));

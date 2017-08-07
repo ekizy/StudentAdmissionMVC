@@ -129,7 +129,6 @@ public class AdmissionController {
 		return model;
 	}
 
-
 	@RequestMapping(value="/submitInstructor",method=RequestMethod.POST)
 	public ModelAndView submitInstructor(@Valid @ModelAttribute("instructor") Instructor instructor
 			,BindingResult result)
@@ -279,7 +278,60 @@ public class AdmissionController {
 		return model;
 	}
 
+	@RequestMapping(value="/submitEnrollment",method=RequestMethod.POST)
+    public ModelAndView submitEnrollment(@ModelAttribute("studentFullName") String studentFullName,
+    		@ModelAttribute("lecture") String lectureFull,
+			BindingResult result)
+    {
 
+		DBConnector db = new DBConnector();
+
+		String [] lecture = lectureFull.split("/");
+		String [] student= studentFullName.split("-");
+
+		String studentName= student[0];
+		String studentSurname= student[1];
+
+		String lectureCourseCode = lecture[0];
+		String lectureDayTime = lecture[1];
+
+		String lectureQuery="SELECT lectures.id FROM LECTURES JOIN COURSES ON courses.id=lectures.courseid where coursecode='"+
+		lectureCourseCode+"' and daytime='"+lectureDayTime+"';";
+
+		String studentQuery="SELECT id FROM STUDENTS where name='"+studentName+"' and surname='"+studentSurname+"'";
+
+
+		try {
+			Statement lectureStatement = db.con.createStatement();
+			ResultSet lectureResult= lectureStatement.executeQuery(lectureQuery);
+
+			lectureResult.next();
+			int lectureID = lectureResult.getInt(1);
+
+			Statement studentStatement= db.con.createStatement();
+			ResultSet studentResult= studentStatement.executeQuery(studentQuery);
+
+			studentResult.next();
+			int studentID=studentResult.getInt(1);
+
+			String lectureInsert ="INSERT INTO ENROLLMENTS (studentid,lectureid) VALUES ("+
+					studentID+","+lectureID+");";
+
+			db.stmt.executeUpdate(lectureInsert);
+
+			db.con.close();
+
+
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		return new ModelAndView("enrollSuccess");
+    }
 
 
 }

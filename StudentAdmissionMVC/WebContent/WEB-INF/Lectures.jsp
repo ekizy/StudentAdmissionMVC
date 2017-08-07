@@ -33,7 +33,6 @@
 <div class="container">
   <h1 class="studentHeader"><spring:message code="label.lectureHeader1" /></h1>
 
-  <h3 class="studentHeader"> <spring:message code="label.lectureHeader2" /></h3>
 
   <div class="main">
 
